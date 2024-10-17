@@ -41,6 +41,7 @@ int n, m;
 vii adj1[401], adj2[401];
 map<pii, bool> edges;
 
+// notice that one can always use the edge 1--->n , so there will be no accidents!
 
 void testcase() {
 	cin >> n >> m;
@@ -82,8 +83,6 @@ void testcase() {
 		//dbg(cur);
 		for (auto x : adj2[cur]) {
 			if (dis2[x] != 1e9) continue ;
-			//dbg(x);
-			if (dis2[cur] + 1 == dis1[x] && x != n) continue;
 			dis2[x] = 1 + dis2[cur];
 			q.push(x);
 		}
