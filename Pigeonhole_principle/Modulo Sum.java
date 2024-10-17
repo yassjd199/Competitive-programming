@@ -73,14 +73,14 @@ public class Main {
         FastReader in = new FastReader();
         n = in.nextInt();
         m = in.nextInt();
-        if (n > m) { // let's look a the prefix sums y pigeonhole principle, there should be two equals sums modulo m so p[r]-p[l-1]=0 divisible by m
+        if (n > m) { // let's look a the prefix sums by pigeonhole principle, there should be two equals sums modulo m so p[r]-p[l-1]=0 divisible by m
             out.println("YES");
             out.flush();
             out.close();
             return;
 
         }
-        // else lets use a dynamic programming  approach for finding such a sequence which is ok since n<=m=1001
+        // else let's use a dynamic programming  approach for finding such a sequence which is ok since n<=m=1001
         for (int i = 0; i < n; i++) {
             a[i] = in.nextInt();
         }
