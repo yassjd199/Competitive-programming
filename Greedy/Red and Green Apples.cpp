@@ -52,24 +52,18 @@ void testcase() {
 	for (int i = 0; i < c; i++) {
 		cin >> C[i];
 	}
-	sort(all(A));
-	sort(all(B));
-	sort(rall(C));
-	multiset<ll> ans;
-	for (int i = a - 1; i > a - 1 - x; i--) ans.insert(A[i]);
+	sort(rall(A));
+	sort(rall(B));
+	for (int i = 0; i < x; i++) C.emplace_back(A[i]);
 	//dbg(ans.size());
-	for (int i = b - 1; i > b - 1 - y; i--) ans.insert(B[i]);
-	for (int i = 0; i < c; i++) {
-		if (C[i] > *ans.begin()) {
-			ans.erase(ans.find(*ans.begin()));
-			ans.insert(C[i]);
-		}
-		else break ;
+	for (int i = 0; i < y; i++) C.emplace_back(B[i]);
+	sort(rall(C));
+	ll ans = 0ll;
+	for (int i = 0; i < x + y; i++) {
+		ans += C[i];
 	}
 
-	ll sm = 0ll;
-	for (auto el : ans) sm += el;
-	cout << sm;
+	cout << ans;
 
 
 
