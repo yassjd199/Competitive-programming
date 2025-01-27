@@ -59,7 +59,7 @@
 			return ;
 		}
 		
-		if(m==1 || m==1){
+		if(n==1 || m==1){
 		
 			cout<<n<<endl;
 			return ;
