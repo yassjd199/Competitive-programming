@@ -63,6 +63,10 @@ int S(int l , int r) {
 }
 
 
+string build_dp[1005][1005];
+
+bool vis[1002][1005];
+
 string gen(int l, int r) {
 	if (l == r) {
 
@@ -70,6 +74,8 @@ string gen(int l, int r) {
 	}
 	if (l > r) return "";
 
+	if (vis[l][r]) return build_dp[l][r];
+	vis[l][r] = 1;
 
 	int p1 = 0;
 	int best = S(l, r);
@@ -80,7 +86,7 @@ string gen(int l, int r) {
 	if (best == p1) ret = min(ret , txt[l] + gen(l + 1, r - 1) + txt[l]);
 	if (best == p2) ret = min(ret , gen(l + 1, r));
 	if (best == p3) ret = min(ret , gen(l, r - 1));
-	return ret ;
+	return build_dp[l][r] =   ret ;
 }
 
 
@@ -95,6 +101,7 @@ void testcase( ) {
 		int len = txt.size();
 
 		memset(dp, -1, sizeof(dp));
+		memset(vis, 0, sizeof(vis));
 		cout << gen(0, len - 1) << endl;
 
 
