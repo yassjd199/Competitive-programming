@@ -1,12 +1,11 @@
 /*
  * Author: yassjd199
- * https://codeforces.com/contest/1722/problem/F
+ * 
  */
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.Math.abs;
-import static java.lang.System.out;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.round;
