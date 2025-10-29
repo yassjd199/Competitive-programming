@@ -59,11 +59,26 @@ public class Main {
 
     static void testcase() {
         int n = in.nextInt();
-        long tot = exp(27, n);
-        long bad = 0L;
-        for (int i = 0; i <= n; i++) {
-            bad += (C(n, i) * exp(6, i)) % MOD;
-            bad %= MOD;
+        // long tot = exp(27, n);
+        // long bad = 0L;
+        // for (int i = 0; i <= n; i++) {
+        // bad += (C(n, i) * exp(6, i)) % MOD;
+        // bad %= MOD;
+        // }
+        // out.println((tot - bad + MOD) % MOD);
+
+        // bad ones are the ones with no ai + a+n +ai+2*n!=6 so any {1,2,3} permutation
+        // we have 6 of those
+        // or {2,2,2} so in total 7
+        // we have n spots each one could have 7 possible vaules so that
+        // a total of 7^n bad ones.
+        // and the total posssible combinations is 3^(3*n) = 27^n
+        // so the final answer is 27^n - 7^n
+        long tot = 1L;
+        long bad = 1L;
+        for (int i = 0; i < n; i++) {
+            tot = (tot * 27) % MOD;
+            bad = (bad * 7) % MOD;
         }
         out.println((tot - bad + MOD) % MOD);
     }
