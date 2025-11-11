@@ -27,56 +27,21 @@ public class Main {
     static void testcase() {
         char S[] = in.next().toCharArray();
         int n = S.length;
-        StringBuilder T = new StringBuilder();
 
-        int pos[] = new int[n];
-        int cnt[] = new int[n];
-        int cur = 0;
-        for (int i = 0; i < n; i++) {
-            if (S[i] == 'o')
-                cur++;
-            else {
-                if (cur != 0) {
-                    pos[T.length()] = i - 1;
-                    cnt[T.length()] = cur;
-                    T.append('o');
-                }
-                pos[T.length()] = i;
-                T.append(S[i]);
-                cur = 0;
-            }
-
-        }
-        if (cur != 0) {
-            pos[T.length()] = n - 1;
-            cnt[T.length()] = cur;
-            T.append('o');
-        }
-        S = T.toString().toCharArray();
-        n = S.length;
         ArrayList<Integer> ans = new ArrayList<>();
-        // dbg(S);
         for (int i = 0; i + 5 <= n; i++) {
             if (S[i] == 't' && S[i + 1] == 'w' && S[i + 2] == 'o' && S[i + 3] == 'n' && S[i + 4] == 'e') {
-                // dbg(i, cnt[i + 2]);
-                if (cnt[i + 2] <= 1) {
-                    ans.add(pos[i + 2]);
-                    S[i + 2] = '#';
-                } else {
-                    ans.add(pos[i + 1]);
-                    ans.add(pos[i + 3]);
-                    S[i + 1] = S[i + 3] = '#';
-                }
+                ans.add(i + 2);
+                S[i + 2] = '#';
             }
-
         }
 
         for (int i = 0; i + 3 <= n; i++) {
             if (S[i] == 't' && S[i + 1] == 'w' && S[i + 2] == 'o') {
-                ans.add(pos[i + 1]);
+                ans.add(i + 1);
             }
             if (S[i] == 'o' && S[i + 1] == 'n' && S[i + 2] == 'e') {
-                ans.add(pos[i + 1]);
+                ans.add(i + 1);
             }
         }
 
@@ -85,6 +50,7 @@ public class Main {
             out.printf("%d ", x + 1);
         }
         out.println();
+
     }
 
     public static void main(String[] args) {
