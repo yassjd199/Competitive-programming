@@ -60,9 +60,7 @@ ll invFermat(ll a , ll p = MOD) {
 }
 
 
-ll C(int n , int k) {
-    return (F[n] * (invFermat(F[k]) * invFermat(F[n - k])) % MOD) % MOD;
-}
+
 void testcase() {
     int n , w , t , r;
     cin >> n >> w >> t >> r;
